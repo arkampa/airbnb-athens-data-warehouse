@@ -1,6 +1,6 @@
 # Design Decisions — Airbnb Athens Data Warehouse
 
-The full reasoning behind every architectural choice in this project — worked examples, attribute tables, trade-offs, and the profiling that surfaced each decision in the first place. See the [main README](../README.md) for the project summary and repo structure.
+The full reasoning behind every architectural choice in this project — worked examples, attribute tables, trade-offs, and the profiling that surfaced each decision in the first place. See the [main README](https://github.com/arkampa/airbnb-athens-data-warehouse/blob/main/README.md) for the project summary and repo structure.
 
 ---
 
