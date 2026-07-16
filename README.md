@@ -14,8 +14,7 @@ A SQL Server data warehouse built from Inside Airbnb's Athens, Greece listings �
 | `Airbnb_Athens_quarterly_load.sql` | Recurring script: run once per new quarterly snapshot |
 | `Airbnb_Athens_load_csvs_to_sql.py` | Python loader for `listings` — scripted alternative to SSMS's Import Flat File wizard |
 | `Airbnb_Athens_Data_Dictionary.xlsx` | Column-level documentation: raw source, staging treatment, and final Dim/Fact schema |
-| `docs/Airbnb_Athens_Design_Decisions.md` | Full reasoning behind every architectural choice |
-| `Airbnb_Athens_Sample_Tables/` | Illustrative rows (full `reviews.csv` files excluded — too large for the repo, available from Inside Airbnb directly) |
+| `Airbnb_Athens_Design_Decisions.md` | Full reasoning behind every architectural choice |
 | `README.md` | This file |
 
 ---
