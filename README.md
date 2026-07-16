@@ -2,7 +2,7 @@
 
 A SQL Server data warehouse built from Inside Airbnb's Athens, Greece listings — designed to answer investor-facing questions (which neighbourhoods perform best, what drives ROI, where regulatory risk concentrates) rather than to be a generic Airbnb clone dataset. Snapshot-based, quarterly-updated, built on a star schema for Power BI.
 
-**→ [Full design decisions writeup](docs/Airbnb_Athens_Design_Decisions.md)** — worked examples (including a real primary-key-violation bug this schema exists to prevent), attribute placement tables, and the reasoning behind every choice below. This README is the summary; that doc is the deep dive.
+**→ [Full design decisions writeup](https://github.com/arkampa/airbnb-athens-data-warehouse/blob/main/Airbnb_Athens_Design_Decisions.md)** — worked examples (including a real primary-key-violation bug this schema exists to prevent), attribute placement tables, and the reasoning behind every choice below. This README is the summary; that doc is the deep dive.
 
 ---
 
@@ -39,7 +39,7 @@ A SQL Server data warehouse built from Inside Airbnb's Athens, Greece listings �
 
 ## Key design decisions
 
-Full reasoning for each of these lives in [`docs/Airbnb_Athens_Design_Decisions.md`](docs/Airbnb_Athens_Design_Decisions.md) — this is the summary.
+Full reasoning for each of these lives in [`docs/Airbnb_Athens_Design_Decisions.md`](https://github.com/arkampa/airbnb-athens-data-warehouse/blob/main/Airbnb_Athens_Design_Decisions.md) — this is the summary.
 
 - **Snapshot-based history.** `listings`/`reviews` are never truncated — every quarter appends, tagged with `snapshot_date`. Never dropped after being consumed into the star schema either, so historical values for anything that's SCD Type 1 in a Dim table (e.g. `host_response_rate`) stay analyzable even after a dimension rebuild overwrites them.
 - **SCD Type 1 via `ROW_NUMBER()`, found through an actual build failure.** Profiling surfaced a real host who lost Superhost status between snapshots — a naive dedup on that data produces a primary-key violation, not just a wrong answer. `ROW_NUMBER() OVER (PARTITION BY ... ORDER BY snapshot_date DESC)` is what makes `DimHost`/`DimListings` buildable at all.
